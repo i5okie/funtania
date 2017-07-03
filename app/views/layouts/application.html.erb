@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Funtania</title>
-    <%= csrf_meta_tags %>
-
+    <title><%= content_for?(:title) ? yield(:title) : "Funtania" %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Funtania.com" %>">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+      <%= render 'layouts/messages' %>
+      <%= yield %>
+    </main>
   </body>
 </html>

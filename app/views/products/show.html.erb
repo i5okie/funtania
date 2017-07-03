@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Shortdescription:</strong>
+  <%= @product.shortdescription %>
+</p>
+
+<p>
+  <strong>Longdescription:</strong>
+  <%= @product.longdescription %>
+</p>
+
+<p>
+  <strong>Manufacturer:</strong>
+  <%= @product.manufacturer %>
+</p>
+
+<p>
+  <strong>Partnumber:</strong>
+  <%= @product.partnumber %>
+</p>
+
+<p>
+  <strong>Sku:</strong>
+  <%= @product.sku %>
+</p>
+
+<% if can? :update, @product %>
+  <%= link_to 'Edit', edit_product_path(@product) %> |
+<% end %>
+
+<%= link_to 'Back', products_path %>
